@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.unicenta</groupId>
     <artifactId>unicentaopos</artifactId>
-    <version>3.91.3</version>
+    <version>3.91.1</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -134,12 +134,6 @@
             <groupId>org.java.net.substance</groupId>
             <artifactId>substance</artifactId>
             <version>6.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.android</groupId>
-                    <artifactId>android</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -234,6 +228,22 @@
                 <exclusion>
                     <groupId>uk.co.pos_apps</groupId>
                     <artifactId>openbravo</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.handpoint</groupId>
+                    <artifactId>headstartsimulator</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.handpoint</groupId>
+                    <artifactId>heft</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.handpoint</groupId>
+                    <artifactId>hal-pc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.unicenta</groupId>
+                    <artifactId>pos</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
