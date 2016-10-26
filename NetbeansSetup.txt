@@ -1,6 +1,8 @@
 Netbeans Unicenta Dev Setup:
 
-Ensure pom.xml is the new version
-Install openjdk 8 from jessie-backports
-Install NetBeans 8.1 from site as user, not root
-Ensure netbeans maven plugin active
+Ensure pom.xml is the new version.
+Install openjdk 8 from jessie-backports.
+Install NetBeans 8.1 from Netbeans site as user, not root.
+Ensure netbeans maven plugin active.
+Install florence keyboard for OSK compatibility. Florence is hardcoded.
+
