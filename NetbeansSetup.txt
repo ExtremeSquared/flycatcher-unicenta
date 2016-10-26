@@ -1,0 +1,6 @@
+Netbeans Unicenta Dev Setup:
+
+Ensure pom.xml is the new version
+Install openjdk 8 from jessie-backports
+Install NetBeans 8.1 from site as user, not root
+Ensure netbeans maven plugin active
