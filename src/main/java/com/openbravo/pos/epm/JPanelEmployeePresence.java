@@ -221,7 +221,7 @@ public class JPanelEmployeePresence extends javax.swing.JPanel implements JPanel
         message = new javax.swing.JLabel();
 
         btnCheckIn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnCheckIn.setText("Check In");
+        btnCheckIn.setText("Clock In");
         btnCheckIn.setMaximumSize(new java.awt.Dimension(85, 23));
         btnCheckIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +230,7 @@ public class JPanelEmployeePresence extends javax.swing.JPanel implements JPanel
         });
 
         btnCheckOut.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnCheckOut.setText("Check Out");
+        btnCheckOut.setText("Clock Out");
         btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckOutActionPerformed(evt);

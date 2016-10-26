@@ -18,6 +18,10 @@
 #    You should have received a copy of the GNU General Public License
 #    along with uniCenta oPOS.  If not, see <http://www.gnu.org/licenses/>.
 
+florence &
+sleep 5
+florence hide
+
 DIRNAME=`dirname $0`
 echo $DIRNAME
 #CP=$DIRNAME/unicentaopos.jar.

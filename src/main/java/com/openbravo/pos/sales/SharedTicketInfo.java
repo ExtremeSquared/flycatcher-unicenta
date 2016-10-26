@@ -38,6 +38,7 @@ public class SharedTicketInfo implements SerializableRead, SerializableWrite {
     private String name;
     private String UserName;
     private String CustomerName;    
+    private String TabTotal;
     
     /** Creates a new instance of SharedTicketInfo */
     public SharedTicketInfo() {
@@ -52,8 +53,9 @@ public class SharedTicketInfo implements SerializableRead, SerializableWrite {
     public void readValues(DataRead dr) throws BasicException {
         id = dr.getString(1);
         name = dr.getString(2);
-        UserName = dr.getString(3);
-        CustomerName = dr.getString(4);  
+        UserName = dr.getString(3); //Actually CONTENT
+        CustomerName = dr.getString(4);  //Actually TABNAME
+        TabTotal = dr.getString(5);
 
     }   
 
@@ -67,7 +69,8 @@ public class SharedTicketInfo implements SerializableRead, SerializableWrite {
         dp.setString(1, id);
         dp.setString(2, name);
         dp.setString(3, UserName);
-        dp.setString(4, CustomerName);        
+        dp.setString(4, CustomerName);
+        dp.setString(5, TabTotal);
     }
     
     /**
@@ -93,7 +96,7 @@ public class SharedTicketInfo implements SerializableRead, SerializableWrite {
      * @return
      */
         public String getAppUser() {
-        return UserName;
+        return UserName; // Actually CONTENT
     }
 // JG Aug 2014 - Add Customer info
 
@@ -102,6 +105,15 @@ public class SharedTicketInfo implements SerializableRead, SerializableWrite {
      * @return
      */
         public String getCustomerName() {
-        return CustomerName;
+        return CustomerName; // Actually TABNAME
+    }        
+
+        
+    /**
+     *
+     * @return
+     */
+        public String getTabTotal() {
+        return TabTotal; 
     }        
 }

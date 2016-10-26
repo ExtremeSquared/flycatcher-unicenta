@@ -100,7 +100,7 @@ public class JTicketLines extends javax.swing.JPanel {
             jColumns.getColumn(i).setResizable(false);
         }       
         
-        m_jScrollTableTicket.getVerticalScrollBar().setPreferredSize(new Dimension(35, 35));
+        m_jScrollTableTicket.getVerticalScrollBar().setPreferredSize(new Dimension(55, 55));
        
         m_jTicketTable.getTableHeader().setReorderingAllowed(false);         
         m_jTicketTable.setDefaultRenderer(Object.class, new TicketCellRenderer(acolumns));

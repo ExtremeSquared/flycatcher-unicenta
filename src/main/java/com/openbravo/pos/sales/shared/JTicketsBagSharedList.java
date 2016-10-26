@@ -27,6 +27,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import java.text.NumberFormat;
+import java.math.BigDecimal;
+
+
+
 
 /**
  *
@@ -79,7 +84,7 @@ public class JTicketsBagSharedList extends javax.swing.JDialog {
         
         mydialog.initComponents();
         
-        mydialog.jScrollPane1.getVerticalScrollBar().setPreferredSize(new Dimension(35, 35));
+        mydialog.jScrollPane1.getVerticalScrollBar().setPreferredSize(new Dimension(55, 35));
         mydialog.jScrollPane1.getHorizontalScrollBar().setPreferredSize(new Dimension(25, 25));
 
         
@@ -109,11 +114,23 @@ public class JTicketsBagSharedList extends javax.swing.JDialog {
             setFocusable(false);
             setRequestFocusEnabled(false);
             setMargin(new Insets(8, 14, 8, 14));
-            setFont(new java.awt.Font ("Dialog", 0, 14));
+            setFont(new java.awt.Font ("Dialog", 0, 18));
             setBackground(new java.awt.Color (220, 220, 220));
             addActionListener(new ActionListenerImpl());
             
-            setText(ticket.getName());
+            NumberFormat nf = NumberFormat.getCurrencyInstance();
+            String FormattedTabTotal = nf.format(new BigDecimal(ticket.getTabTotal()));
+            
+            // THIS SETS WHAT IS DISPLAYED IN LAYAWAYS
+            setText(
+                //ticket.getId() + " " + //Pulls ID from DB
+                ticket.getCustomerName() + " - " + //Pulls TABNAME from DB
+                //ticket.getAppUser() + " " //Pulls CONTENT from DB
+                ticket.getName() + " - " +  //Pulls NAME from DB
+                //ticket.getTabTotal()
+                FormattedTabTotal
+                
+            );
             
         }
 
@@ -190,7 +207,7 @@ public class JTicketsBagSharedList extends javax.swing.JDialog {
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.SOUTH);
 
-        setSize(new java.awt.Dimension(411, 335));
+        setSize(new java.awt.Dimension(702, 489));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

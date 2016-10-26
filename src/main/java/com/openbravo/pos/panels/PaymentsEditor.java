@@ -96,12 +96,12 @@ public final class PaymentsEditor extends javax.swing.JPanel implements EditorRe
         m_sId = null;
         m_sPaymentId = null;
         datenew = null;
-        setReasonTotal("cashin", null);
+        setReasonTotal("cashout", null);
         m_jreason.setEnabled(true);
         jTotal.setEnabled(true);   
         jTotal.activate();
 // JG Added July 2011
-        m_sNotes = null;
+        m_sNotes = "Tip";
         m_jNotes.setEnabled(true);
         m_jNotes.setText(m_sNotes);
     }

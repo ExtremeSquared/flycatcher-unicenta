@@ -239,7 +239,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
             if (m_PlaceCurrent != null) {
                             
                 try {
-                    dlReceipts.updateSharedTicket(m_PlaceCurrent.getId(), m_panelticket.getActiveTicket(),m_panelticket.getActiveTicket().getPickupId());
+                    dlReceipts.updateSharedTicket(m_PlaceCurrent.getId(), m_panelticket.getActiveTicket(),"DEBUGTHIS");
                 } catch (BasicException e) {
                     new MessageInf(e).show(this);
                 }                                  
@@ -294,7 +294,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
         if (m_PlaceCurrent != null) {
                           
             try {
-                dlReceipts.updateSharedTicket(m_PlaceCurrent.getId(), m_panelticket.getActiveTicket(),m_panelticket.getActiveTicket().getPickupId());
+                dlReceipts.updateSharedTicket(m_PlaceCurrent.getId(), m_panelticket.getActiveTicket(),"DEBUGTHIS");
             } catch (BasicException e) {
                 new MessageInf(e).show(this);
             }      
@@ -347,7 +347,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
         if (m_PlaceCurrent != null) {
                          
             try {
-                    dlReceipts.updateSharedTicket(m_PlaceCurrent.getId(), m_panelticket.getActiveTicket(),m_panelticket.getActiveTicket().getPickupId());                
+                    dlReceipts.updateSharedTicket(m_PlaceCurrent.getId(), m_panelticket.getActiveTicket(),"DEBUGTHIS");                
             } catch (BasicException e) {
                 new MessageInf(e).show(this); // maybe other guy deleted it
             }              
@@ -435,7 +435,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
         Set<String> atickets = new HashSet<>();
         
         try {
-            java.util.List<SharedTicketInfo> l = dlReceipts.getSharedTicketList();
+            java.util.List<SharedTicketInfo> l = dlReceipts.getSharedTicketList("");
             for (SharedTicketInfo ticket : l) {
                 atickets.add(ticket.getId());
             }
@@ -581,7 +581,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
                         ticket = new TicketInfo();
                         try {
 //Create a new pickup code because this is a new ticket                            
-                        dlReceipts.insertSharedTicket(m_place.getId(), ticket, ticket.getPickupId());               
+                        dlReceipts.insertSharedTicket(m_place.getId(), ticket, "DEBUGTHIS");               
                         } catch (BasicException e) {
                             new MessageInf(e).show(JTicketsBagRestaurantMap.this); // Glup. But It was empty.
                         }                     
@@ -623,7 +623,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
                         }                     
                         
                         try {      
-                            dlReceipts.insertSharedTicket(m_place.getId(), ticket, ticket.getPickupId());    
+                            dlReceipts.insertSharedTicket(m_place.getId(), ticket, "DEBUGTHIS");    
                         } catch (BasicException e) {
                             new MessageInf(e).show(JTicketsBagRestaurantMap.this); // Glup. But It was empty.
                         }                     
@@ -664,7 +664,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
 ////
                         if (ticket == null) {
                             try {
-                                dlReceipts.insertSharedTicket(m_place.getId(), ticketclip, ticketclip.getPickupId());//dlSales.getNextPickupIndex());
+                                dlReceipts.insertSharedTicket(m_place.getId(), ticketclip, "DEBUGTHIS");//dlSales.getNextPickupIndex());
                                 m_place.setPeople(true);                              
                                 dlReceipts.deleteSharedTicket(m_PlaceClipboard.getId());
                                 m_PlaceClipboard.setPeople(false);
@@ -709,7 +709,7 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
                                     for(TicketLineInfo line : ticketclip.getLines()) {
                                         ticket.addLine(line);
                                     }
-                                    dlReceipts.updateSharedTicket(m_place.getId(), ticket, ticket.getPickupId());
+                                    dlReceipts.updateSharedTicket(m_place.getId(), ticket, "DEBUGTHIS");
                                 } catch (BasicException e) {
                                     new MessageInf(e).show(JTicketsBagRestaurantMap.this); // Glup. But It was empty.
                                 }

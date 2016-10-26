@@ -72,6 +72,7 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRMapArrayDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import java.text.NumberFormat;
 
 /**
  *
@@ -183,6 +184,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
 // added 25.05.13 JDl warranty receipt
     private Boolean warrantyPrint=false;
 //   private String loyaltyCardNumber=null;
+    private String ticketstatus;
     
     
     /** Creates new form JTicketView */
@@ -307,7 +309,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         String currentTicket =(String)m_oTicketExt;
         if (currentTicket != null) {
             try {
-                dlReceipts.updateSharedTicket(currentTicket, m_oTicket,m_oTicket.getPickupId());
+                dlReceipts.updateSharedTicket(currentTicket, m_oTicket,"DEBUGTHIS");
             } catch (BasicException e) {
                 new MessageInf(e).show(this);
             }  
@@ -516,7 +518,9 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
            
             m_jSubtotalEuros.setText(null);
             m_jTaxesEuros.setText(null);
-            m_jTotalEuros.setText(null); 
+            m_jTotalEuros.setText(null);
+            m_jTabTotal.setText(null);
+            
         
             stateToZero();
             repaint();
@@ -543,6 +547,15 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         
             // The ticket name
             m_jTicketId.setText(m_oTicket.getName(m_oTicketExt));
+            
+            
+            try {
+//                m_jTabTotal.setText(Double.toString(dlReceipts.getTabsTotal()));
+                NumberFormat dnf = NumberFormat.getCurrencyInstance();
+                m_jTabTotal.setText("Remaining Tabs: " + dnf.format(dlReceipts.getTabsTotal()));
+            } catch (BasicException ex) {
+                Logger.getLogger(JPanelTicket.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             // Limpiamos todas las filas y anadimos las del ticket actual
             m_ticketlines.clearTicketLines();
@@ -582,7 +595,10 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         } else {
             m_jSubtotalEuros.setText(m_oTicket.printSubTotal());
             m_jTaxesEuros.setText(m_oTicket.printTax());
-            m_jTotalEuros.setText(m_oTicket.printTotal());
+//m_jTaxesEuros.setText(null);
+
+
+m_jTotalEuros.setText(m_oTicket.printTotal());
         }
     }
     
@@ -1857,6 +1873,7 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         jEditAttributes = new javax.swing.JButton();
         m_jPanelCentral = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        m_jTabTotal = new javax.swing.JLabel();
         m_jTicketId = new javax.swing.JLabel();
         m_jPanTotals = new javax.swing.JPanel();
         m_jLblTotalEuros3 = new javax.swing.JLabel();
@@ -1891,7 +1908,7 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         jButton1.setMargin(new java.awt.Insets(0, 4, 0, 4));
         jButton1.setMaximumSize(new java.awt.Dimension(50, 40));
         jButton1.setMinimumSize(new java.awt.Dimension(50, 40));
-        jButton1.setPreferredSize(new java.awt.Dimension(50, 40));
+        jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton1.setRequestFocusEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1906,7 +1923,7 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         btnCustomer.setMargin(new java.awt.Insets(0, 4, 0, 4));
         btnCustomer.setMaximumSize(new java.awt.Dimension(50, 40));
         btnCustomer.setMinimumSize(new java.awt.Dimension(50, 40));
-        btnCustomer.setPreferredSize(new java.awt.Dimension(50, 40));
+        btnCustomer.setPreferredSize(new java.awt.Dimension(40, 40));
         btnCustomer.setRequestFocusEnabled(false);
         btnCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1921,7 +1938,7 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         btnSplit.setMargin(new java.awt.Insets(0, 4, 0, 4));
         btnSplit.setMaximumSize(new java.awt.Dimension(50, 40));
         btnSplit.setMinimumSize(new java.awt.Dimension(50, 40));
-        btnSplit.setPreferredSize(new java.awt.Dimension(50, 40));
+        btnSplit.setPreferredSize(new java.awt.Dimension(40, 40));
         btnSplit.setRequestFocusEnabled(false);
         btnSplit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2134,6 +2151,7 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         m_jPanelCentral.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setLayout(new java.awt.BorderLayout());
+        jPanel4.add(m_jTabTotal, java.awt.BorderLayout.LINE_START);
 
         m_jTicketId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         m_jTicketId.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -2610,6 +2628,7 @@ m_App.getAppUserView().showTask("com.openbravo.pos.customers.CustomersPanel");
     private javax.swing.JLabel m_jPor;
     private javax.swing.JLabel m_jPrice;
     private javax.swing.JLabel m_jSubtotalEuros;
+    private javax.swing.JLabel m_jTabTotal;
     private javax.swing.JComboBox m_jTax;
     private javax.swing.JLabel m_jTaxesEuros;
     private javax.swing.JLabel m_jTicketId;

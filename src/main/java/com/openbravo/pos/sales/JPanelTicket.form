@@ -93,7 +93,7 @@
                       <Dimension value="[50, 40]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[50, 40]"/>
+                      <Dimension value="[40, 40]"/>
                     </Property>
                     <Property name="requestFocusEnabled" type="boolean" value="false"/>
                   </Properties>
@@ -119,7 +119,7 @@
                       <Dimension value="[50, 40]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[50, 40]"/>
+                      <Dimension value="[40, 40]"/>
                     </Property>
                     <Property name="requestFocusEnabled" type="boolean" value="false"/>
                   </Properties>
@@ -145,7 +145,7 @@
                       <Dimension value="[50, 40]"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[50, 40]"/>
+                      <Dimension value="[40, 40]"/>
                     </Property>
                     <Property name="requestFocusEnabled" type="boolean" value="false"/>
                   </Properties>
@@ -525,6 +525,13 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                   <SubComponents>
+                    <Component class="javax.swing.JLabel" name="m_jTabTotal">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                          <BorderConstraints direction="Before"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
                     <Component class="javax.swing.JLabel" name="m_jTicketId">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

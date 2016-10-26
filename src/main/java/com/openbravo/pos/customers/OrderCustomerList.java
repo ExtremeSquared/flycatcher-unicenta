@@ -136,7 +136,7 @@ public class OrderCustomerList extends JPanel implements TicketSelector {
                     LOGGER.log(Level.INFO, "Time of getCustomersWithOutImage {0}", (System.currentTimeMillis() - time));
                     time = System.currentTimeMillis();
 
-                    ticketList = dataLogicReceipts.getSharedTicketList();
+                    ticketList = dataLogicReceipts.getSharedTicketList("");
                     LOGGER.log(Level.INFO, "Time of getSharedTicketList {0}", (System.currentTimeMillis() - time));
                     time = System.currentTimeMillis();
 
