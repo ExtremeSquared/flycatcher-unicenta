@@ -552,7 +552,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
             try {
 //                m_jTabTotal.setText(Double.toString(dlReceipts.getTabsTotal()));
                 NumberFormat dnf = NumberFormat.getCurrencyInstance();
-                m_jTabTotal.setText("Remaining Tabs: " + dnf.format(dlReceipts.getTabsTotal()));
+                m_jTabTotal.setText("Remaining Tabs:" + dnf.format(dlReceipts.getTabsTotal()));
             } catch (BasicException ex) {
                 Logger.getLogger(JPanelTicket.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1873,8 +1873,6 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         jEditAttributes = new javax.swing.JButton();
         m_jPanelCentral = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        m_jTabTotal = new javax.swing.JLabel();
-        m_jTicketId = new javax.swing.JLabel();
         m_jPanTotals = new javax.swing.JPanel();
         m_jLblTotalEuros3 = new javax.swing.JLabel();
         m_jLblTotalEuros2 = new javax.swing.JLabel();
@@ -1882,6 +1880,9 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         m_jSubtotalEuros = new javax.swing.JLabel();
         m_jTaxesEuros = new javax.swing.JLabel();
         m_jTotalEuros = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        m_jTabTotal = new javax.swing.JLabel();
+        m_jTicketId = new javax.swing.JLabel();
         m_jContEntries = new javax.swing.JPanel();
         m_jPanEntries = new javax.swing.JPanel();
         m_jNumberKeys = new com.openbravo.beans.JNumberKeys();
@@ -2150,19 +2151,8 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         m_jPanelCentral.setPreferredSize(new java.awt.Dimension(450, 240));
         m_jPanelCentral.setLayout(new java.awt.BorderLayout());
 
+        jPanel4.setPreferredSize(new java.awt.Dimension(825, 70));
         jPanel4.setLayout(new java.awt.BorderLayout());
-        jPanel4.add(m_jTabTotal, java.awt.BorderLayout.LINE_START);
-
-        m_jTicketId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        m_jTicketId.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        m_jTicketId.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        m_jTicketId.setAutoscrolls(true);
-        m_jTicketId.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        m_jTicketId.setOpaque(true);
-        m_jTicketId.setPreferredSize(new java.awt.Dimension(300, 40));
-        m_jTicketId.setRequestFocusEnabled(false);
-        m_jTicketId.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel4.add(m_jTicketId, java.awt.BorderLayout.CENTER);
 
         m_jPanTotals.setPreferredSize(new java.awt.Dimension(375, 60));
         m_jPanTotals.setLayout(new java.awt.GridLayout(2, 3, 4, 0));
@@ -2225,6 +2215,44 @@ if (pickupSize!=null && (Integer.parseInt(pickupSize) >= tmpPickupId.length())){
         m_jPanTotals.add(m_jTotalEuros);
 
         jPanel4.add(m_jPanTotals, java.awt.BorderLayout.LINE_END);
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(450, 80));
+
+        m_jTabTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        m_jTabTotal.setAutoscrolls(true);
+        m_jTabTotal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        m_jTabTotal.setPreferredSize(new java.awt.Dimension(300, 40));
+
+        m_jTicketId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        m_jTicketId.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        m_jTicketId.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        m_jTicketId.setAutoscrolls(true);
+        m_jTicketId.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        m_jTicketId.setOpaque(true);
+        m_jTicketId.setPreferredSize(new java.awt.Dimension(300, 40));
+        m_jTicketId.setRequestFocusEnabled(false);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(m_jTicketId, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(m_jTabTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 300, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(m_jTabTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(m_jTicketId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel4.add(jPanel3, java.awt.BorderLayout.LINE_START);
 
         m_jPanelCentral.add(jPanel4, java.awt.BorderLayout.SOUTH);
 
@@ -2599,6 +2627,7 @@ m_App.getAppUserView().showTask("com.openbravo.pos.customers.CustomersPanel");
     private javax.swing.JButton jEditAttributes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
